@@ -11,9 +11,14 @@ public class ConnectionManager {
 	public static Connection getConnection() throws ClassNotFoundException, SQLException, IOException {
 		//loadproperties file.
 		Properties p = loadPropertiesFile();
+		String driver = p.getProperty("driver");
+		String url = p.getProperty("url");
+		String username = p.getProperty("username");
+		String password = p.getProperty("password");
+		
 		Connection con  = null;
-		Class.forName(p.getProperty("driver"));
-		con = DriverManager.getConnection(p.getProperty("url"));
+		Class.forName(p.getProperty(driver));
+		con = DriverManager.getConnection(url,username,password);
 		return con;
 		
 	}

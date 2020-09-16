@@ -36,7 +36,6 @@ public class UserDAO implements UserDaoInterface{
 		ps.setString(2,user.getPassword());
 		
 		ResultSet rs = ps.executeQuery();
-		
 		return false;
 	}
 }
